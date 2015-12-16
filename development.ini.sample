@@ -1,0 +1,94 @@
+###
+# app configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/environment.html
+###
+
+[app:main]
+use = egg:osstp
+
+pyramid.reload_templates = true
+pyramid.debug_authorization = false
+pyramid.debug_notfound = false
+pyramid.debug_routematch = false
+pyramid.includes =
+    pyramid_debugtoolbar
+
+production_mode = false
+
+auth_mode = false
+
+# activate some useful filters of jinja2
+jinja2.filters =
+    route_url = pyramid_jinja2.filters:route_url_filter
+    static_url = pyramid_jinja2.filters:static_url_filter
+    route_path = pyramid_jinja2.filters:route_path_filter
+    static_path = pyramid_jinja2.filters:static_path_filter
+
+# session settings
+#
+# using builtin session mechanism
+sessions.secret = 3d8e6f86ef51177d3f75b9632ad0dde883781275
+#
+# using pyramid_redis_sessions
+#redis.sessions.secret = 3d8e6f86ef51177d3f75b9632ad0dde883781275
+
+# database settings
+#
+# Note that you need to install the real database driver
+# by yourself, like mysql-connector-python.
+# The url syntax can be found here: http://docs.sqlalchemy.org/en/latest/core/engines.html
+#sqlalchemy.url = mysql+mysqlconnector://DB_USER:DB_PASS@DB_HOST/DB_NAME
+#sqlalchemy.url = sqlite:///%(here)s/osstp.db
+
+# i18n settings
+#
+# Set it to a valid locale name (default is en).
+#translation_domain = osstp
+#pyramid.default_locale_name = zh_TW
+#jinja2.newstyle = true
+#jinja2.i18n.domain = osstp
+
+# By default, the toolbar only appears for clients from IP addresses
+# '127.0.0.1' and '::1'.
+#debugtoolbar.hosts = 127.0.0.1 ::1
+
+###
+# wsgi server configuration
+###
+
+[server:main]
+use = egg:waitress#main
+host = 0.0.0.0
+port = 6543
+
+###
+# logging configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/logging.html
+###
+
+[loggers]
+keys = root, osstp
+
+[handlers]
+keys = console
+
+[formatters]
+keys = generic
+
+[logger_root]
+level = INFO
+handlers = console
+
+[logger_osstp]
+level = DEBUG
+handlers =
+qualname = osstp
+
+[handler_console]
+class = StreamHandler
+args = (sys.stderr,)
+level = NOTSET
+formatter = generic
+
+[formatter_generic]
+format = %(asctime)s %(levelname)-5.5s [%(name)s][%(threadName)s] %(message)s
