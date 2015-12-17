@@ -1,55 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>{% block title %}Starter Template for Bootstrap{% endblock %}</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{'osstp:static/css/bootstrap.min.css'|static_url}}" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+<html>
+<head lang="zh-Hant">
+  <meta charset="utf8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="臺北市數位學習資源網">
+  <meta name="author" content="臺北市數位學習資源網網站維護組">
+  <title>臺北市數位學習資源網</title>
+  <link href="{{ 'osstp:static/css/bootstrap.min.css'|static_path }}" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="{{ 'home'|route_path }}" class="navbar-brand">臺北市數位學習資源網</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-    </nav>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li{% block about_us_stats %}{% endblock %}>
+              <a href="{{ 'about_us'|route_path }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 關於我們</a>
+          </li>
+        </ul>
 
-    <div class="container">
-      {% block content %}
+        <ul class="nav navbar-nav navbar-right">
+            <li{% block login_stats %}{% endblock %}><a href="{{ 'login'|route_path }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 登入</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% block content %}
+  {% endblock %}
+  <hr>
 
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+  <footer class="footer">
+    <p class="text-center">版權所有 &copy; 2015 臺北市自由軟體數位學習資源網</p>
+  </footer>
 
-      {% endblock %}
-    </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{'osstp:static/js/jquery.min.js'|static_url}}"></script>
-    <script src="{{'osstp:static/js/bootstrap.min.js'|static_url}}"></script>
-  </body>
+  <script src="{{ 'osstp:static/js/jquery.min.js'|static_path }}"></script>
+  <script src="{{ 'osstp:static/js/bootstrap.min.js'|static_path }}"></script>
+</body>
 </html>

@@ -1,3 +1,35 @@
-{% extends "base.jinja2" %}
-{% block title %}hello, {{ project }}{% endblock %}
-{% block content %}<h1>hello, {{ project }}.</h1>{% endblock %}
+{% extends 'base.jinja2' %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="panel panel-primary">
+      <div class="panel-heading">最新消息</div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <th>序號</th>
+              <th>標題</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>測試標題</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>測試標題</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>測試標題</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div><!-- container -->
+{% endblock content %}

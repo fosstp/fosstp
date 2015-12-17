@@ -17,8 +17,6 @@ requires = [
     'pyramid_tm',
     'pyramid_sqlalchemy',
     'pyramid_redis_sessions',
-    'pyramid_i18n_wrapper',
-    'pyramid_sacrud',
     'alembic',
     'deform',
     'ColanderAlchemy',

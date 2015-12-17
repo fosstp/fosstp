@@ -68,22 +68,10 @@ def main(global_config, **settings):
     # mailer settings
     #config.include('pyramid_mailer')
 
-    # i18n settings
-    #config.add_translation_dirs('osstp:locale')
-
-    # pyramid_sacrud settings
-    #from .models import Model1, Model2, Model3
-    #config.add_jinja2_search_path('osstp:templates')
-    #config.include('pyramid_sacrud', route_prefix='admin')
-    #config.registry.settings['pyramid_sacrud.models'] = (
-    #    ('Group1', [Model1, Model2]),
-    #    ('Group2', [Model3])
-    #)
-
     config.add_static_view('static', 'static', cache_max_age=3600)
     config.add_route('home', '/')
-    #config.add_route('login', '/login')
-    #config.add_route('logout', '/logout')
+    config.add_route('about_us', '/about-us')
+    config.add_route('login', '/login')
 
     config.scan()
     return config.make_wsgi_app()
