@@ -4,7 +4,7 @@
 ###
 
 [app:main]
-use = egg:osstp
+use = egg:fosstp
 
 pyramid.reload_templates = false
 pyramid.debug_authorization = false
@@ -36,15 +36,15 @@ redis.sessions.secret = 3d8e6f86ef51177d3f75b9632ad0dde883781275
 # by yourself, like mysql-connector-python.
 # The url syntax can be found here: http://docs.sqlalchemy.org/en/latest/core/engines.html
 #sqlalchemy.url = mysql+mysqlconnector://DB_USER:DB_PASS@DB_HOST/DB_NAME
-#sqlalchemy.url = sqlite:///%(here)s/osstp.db
+#sqlalchemy.url = sqlite:///%(here)s/fosstp.db
 
 # i18n settings
 #
 # Set it to a valid locale name (default is en).
-#translation_domain = osstp
+#translation_domain = fosstp
 #pyramid.default_locale_name = zh_TW
 #jinja2.newstyle = true
-#jinja2.i18n.domain = osstp
+#jinja2.i18n.domain = fosstp
 
 ###
 # wsgi server configuration
@@ -61,7 +61,7 @@ port = 6543
 ###
 
 [loggers]
-keys = root, osstp
+keys = root, fosstp
 
 [handlers]
 keys = console
@@ -73,10 +73,10 @@ keys = generic
 level = WARN
 handlers = console
 
-[logger_osstp]
+[logger_fosstp]
 level = WARN
 handlers =
-qualname = osstp
+qualname = fosstp
 
 [handler_console]
 class = StreamHandler

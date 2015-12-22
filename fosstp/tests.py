@@ -14,4 +14,4 @@ class ViewTests(unittest.TestCase):
         from .views import home_view
         request = testing.DummyRequest()
         info = home_view(request)
-        self.assertEqual(info['project'], 'osstp')
+        self.assertEqual(info['project'], 'fosstp')

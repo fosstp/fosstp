@@ -23,9 +23,9 @@ requires = [
     'waitress',
     ]
 
-setup(name='osstp',
+setup(name='fosstp',
       version='0.0',
-      description='osstp',
+      description='fosstp',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Programming Language :: Python",
@@ -42,9 +42,9 @@ setup(name='osstp',
       zip_safe=False,
       install_requires=requires,
       tests_require=requires,
-      test_suite="osstp",
+      test_suite="fosstp",
       entry_points="""\
       [paste.app_factory]
-      main = osstp:main
+      main = fosstp:main
       """,
       )
