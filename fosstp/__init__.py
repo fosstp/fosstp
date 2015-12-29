@@ -70,7 +70,15 @@ def main(global_config, **settings):
 
     config.add_static_view('static', 'static', cache_max_age=3600)
     config.add_route('home', '/')
-    config.add_route('about_us', '/about-us')
+    config.add_route('news', '/news')
+    config.add_route('workshop', '/workshop')
+    config.add_route('planet', '/planet')
+    config.add_route('forum', '/forum')
+    config.add_route('about_this_site', '/about-this-site')
+    config.add_route('download', '/download')
+    config.add_route('link', '/link')
+    config.add_route('address_book', '/address-book')
+    config.add_route('log', '/log')
     config.add_route('login', '/login')
 
     config.scan()

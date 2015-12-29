@@ -22,13 +22,47 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
-          <li{% block about_us_stats %}{% endblock %}>
-              <a href="{{ 'about_us'|route_path }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 關於我們</a>
+          <li{% block news_stats %}{% endblock %}>
+              <a href="{{ 'news'|route_path }}"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 最新消息</a>
+          </li>
+          <li{% block workshop_stats %}{% endblock %}>
+              <a href="{{ 'workshop'|route_path }}"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 研習資訊</a>
+          </li>
+          <li{% block planet_stats %}{% endblock %}>
+              <a href="{{ 'planet'|route_path }}"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> 聯播星球</a>
+          </li>
+          <li{% block forum_stats %}{% endblock %}>
+              <a href="{{ 'forum'|route_path }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 討論區</a>
+          </li>
+          <li{% block about_this_site_stats %}{% endblock %}>
+              <a href="{{ 'about_this_site'|route_path }}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 關於本站</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">資源分享 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li{% block download_stats %}{% endblock %}>
+                  <a href="{{ 'download'|route_path }}"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> 檔案下載</a>
+              </li>
+              <li{% block link_stats %}{% endblock %}>
+                  <a href="{{ 'link'|route_path }}"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 好站連結</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">組內互動 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="{{ 'address_book'|route_path }}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> 通訊錄</a>
+              </li>
+              <li>
+                <a href="{{ 'log'|route_path }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 討論紀錄</a>
+              </li>
+            </ul>
           </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <li{% block login_stats %}{% endblock %}><a href="{{ 'login'|route_path }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 登入</a></li>
+          <li{% block login_stats %}{% endblock %}><a href="{{ 'login'|route_path }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 登入</a></li>
         </ul>
       </div>
     </div>
