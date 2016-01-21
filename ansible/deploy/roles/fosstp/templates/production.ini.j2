@@ -24,27 +24,15 @@ jinja2.filters =
 
 # session settings
 #
-# using builtin session mechanism for development
-#sessions.secret = 3d8e6f86ef51177d3f75b9632ad0dde883781275
-#
 # using pyramid_redis_sessions for production
-redis.sessions.secret = 3d8e6f86ef51177d3f75b9632ad0dde883781275
+redis.sessions.secret = {{ random_string.stdout }}
 
 # database settings
 #
 # Note that you need to install the real database driver
 # by yourself, like mysql-connector-python.
 # The url syntax can be found here: http://docs.sqlalchemy.org/en/latest/core/engines.html
-#sqlalchemy.url = mysql+mysqlconnector://DB_USER:DB_PASS@DB_HOST/DB_NAME
-#sqlalchemy.url = sqlite:///%(here)s/fosstp.db
-
-# i18n settings
-#
-# Set it to a valid locale name (default is en).
-#translation_domain = fosstp
-#pyramid.default_locale_name = zh_TW
-#jinja2.newstyle = true
-#jinja2.i18n.domain = fosstp
+sqlalchemy.url = mysql+mysqlconnector://{{ fosstp_db_user }}:{{ fosstp_db_pass }}@{{ fosstp_db_host }}/{{ fosstp_db_name }}
 
 ###
 # wsgi server configuration
