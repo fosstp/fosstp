@@ -23,6 +23,11 @@ requires = [
     'waitress',
     ]
 
+test_requires = [
+    'pytest',
+    'webtest',
+    ]
+
 setup(name='fosstp',
       version='0.0',
       description='fosstp',
@@ -41,7 +46,7 @@ setup(name='fosstp',
       include_package_data=True,
       zip_safe=False,
       install_requires=requires,
-      tests_require=requires,
+      tests_require=test_requires,
       test_suite="fosstp",
       entry_points="""\
       [paste.app_factory]
