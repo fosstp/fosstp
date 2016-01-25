@@ -4,6 +4,8 @@ sysbase_manager_group: "{{ vault_sysbase_manager_group }}"
 sysbase_manager_password: "{{ vault_sysbase_manager_password }}"
 percona_root_password: "{{ vault_percona_root_password }}"
 uwsgi_version: "{{ vault_uwsgi_version }}"
+wsgiapp_project_name: "fosstp"
+wsgiapp_domain_name: "foss.tp.edu.tw"
 wsgiapp_basedir: "{{ vault_wsgiapp_basedir }}"
 wsgiapp_scm: git
 wsgiapp_repo: https://github.com/fosstp/fosstp
