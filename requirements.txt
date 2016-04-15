@@ -3,7 +3,6 @@ Chameleon==2.24
 colander==1.2
 ColanderAlchemy==0.3.3
 deform==2.0a2
--e .
 iso8601==0.1.11
 Jinja2==2.8
 Mako==1.0.4
