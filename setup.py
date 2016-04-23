@@ -24,12 +24,13 @@ requires = [
     ]
 
 setup_requires = [
-    'pytest-runner==2.7.1',
+    'pytest-runner',
     ]
 
 test_requires = [
-    'pytest==2.9.1',
-    'WebTest==2.0.21',
+    'pytest',
+    'WebTest',
+    'pytest-cov',
     ]
 
 dependency_links = [
