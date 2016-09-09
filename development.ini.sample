@@ -37,7 +37,7 @@ sessions.secret = 3d8e6f86ef51177d3f75b9632ad0dde883781275
 # Note that you need to install the real database driver
 # by yourself, like mysql-connector-python.
 # The url syntax can be found here: http://docs.sqlalchemy.org/en/latest/core/engines.html
-#sqlalchemy.url = mysql+mysqlconnector://DB_USER:DB_PASS@DB_HOST/DB_NAME
+#sqlalchemy.url = mysql+pymysql://DB_USER:DB_PASS@DB_HOST/DB_NAME?charset=utf8mb4
 #sqlalchemy.url = sqlite:///%(here)s/fosstp.db
 
 # i18n settings
