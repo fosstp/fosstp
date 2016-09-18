@@ -22,6 +22,9 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
+          <li{% block about_this_site_stats %}{% endblock %}>
+              <a href="{{ 'about_this_site'|route_path }}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 關於本站</a>
+          </li>
           <li{% block news_stats %}{% endblock %}>
               <a href="{{ 'news'|route_path }}"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 最新消息</a>
           </li>
@@ -33,9 +36,6 @@
           </li>
           <li{% block forum_stats %}{% endblock %}>
               <a href="{{ 'forum'|route_path }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 討論區</a>
-          </li>
-          <li{% block about_this_site_stats %}{% endblock %}>
-              <a href="{{ 'about_this_site'|route_path }}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 關於本站</a>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">資源分享 <span class="caret"></span></a>
