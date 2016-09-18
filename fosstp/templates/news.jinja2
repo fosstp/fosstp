@@ -3,7 +3,60 @@
 {% block news_stats %} class="active"{% endblock %}
 
 {% block content %}
-  <div class="container-fluid">
-    最新消息
-  </div><!-- container -->
+<!-- facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7&appId=533352440192510";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- facebook -->
+
+<!-- container -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="fb-page" data-href="https://www.facebook.com/fosstp/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fosstp/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fosstp/">臺北市自由軟體推動小組</a></blockquote></div>
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">最新消息</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <th>序號</th>
+              <th>標題</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>測試標題</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>測試標題</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>測試標題</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <ul class="pager">
+          <li><a href="#"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 上一頁</a></li>
+          <li><a href="#">下一頁  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</div><!-- container -->
 {% endblock content %}

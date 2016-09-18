@@ -1,9 +1,10 @@
 from pyramid.view import view_config
+from pyramid.httpexceptions import HTTPFound
 
 
-@view_config(route_name='home', renderer='templates/home.jinja2')
+@view_config(route_name='home')
 def home_view(request):
-    return {}
+    return HTTPFound(request.route_url('news'))
 
 @view_config(route_name='news', renderer='templates/news.jinja2')
 def news_view(request):

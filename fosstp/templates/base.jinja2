@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="臺北市自由軟體數位學習資源網">
   <meta name="author" content="臺北市自由軟體數位學習資源網網站維護組">
-  <title>臺北市數位學習資源網</title>
+  <title>臺北市自由軟體數位學習資源網</title>
   <link href="{{ 'fosstp:static/css/bootstrap.min.css'|static_path }}" rel="stylesheet">
+  <link href="{{ 'fosstp:static/css/font-awesome.min.css'|static_path }}" rel="stylesheet">
 </head>
 <body>
   <div class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a href="{{ 'home'|route_path }}" class="navbar-brand">臺北市自由軟體數位學習資源網</a>
+        <a href="{{ 'news'|route_path }}" class="navbar-brand">臺北市自由軟體數位學習資源網</a>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -22,11 +23,11 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
-          <li{% block about_this_site_stats %}{% endblock %}>
-              <a href="{{ 'about_this_site'|route_path }}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 關於本站</a>
-          </li>
           <li{% block news_stats %}{% endblock %}>
               <a href="{{ 'news'|route_path }}"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 最新消息</a>
+          </li>
+          <li{% block about_this_site_stats %}{% endblock %}>
+              <a href="{{ 'about_this_site'|route_path }}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 關於本站</a>
           </li>
           <li{% block workshop_stats %}{% endblock %}>
               <a href="{{ 'workshop'|route_path }}"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 研習資訊</a>
