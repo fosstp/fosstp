@@ -1,5 +1,15 @@
 {% extends 'base.jinja2' %}
 
+{% block custom_header %}
+<link rel="stylesheet" href="{{ 'fosstp:static/css/github-activity.min.css'|static_url }}">
+{% endblock %}
+
+{% block custom_footer %}
+<link rel="stylesheet" href="{{ 'fosstp:static/css/github-activity.min.css'|static_url }}">
+<script type="text/javascript" src="{{ 'fosstp:static/js/mustache.min.js'|static_url }}"></script>
+<script type="text/javascript" src="{{ 'fosstp:static/js/github-activity.min.js'|static_url }}">
+{% endblock %}
+
 {% block news_stats %} class="active"{% endblock %}
 
 {% block content %}

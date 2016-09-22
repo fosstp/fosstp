@@ -11,6 +11,7 @@
   <link href="{{ 'fosstp:static/css/font-awesome.min.css'|static_path }}" rel="stylesheet">
   <link rel="shortcut icon" href="{{ 'fosstp:static/favicon.ico'|static_path }}">
   <link rel="bookmark" href="{{ 'fosstp:static/favicon.ico'|static_path }}">
+  {% block custom_header %}{% endblock %}
 </head>
 <body>
   <div class="navbar navbar-default">
@@ -80,5 +81,6 @@
 
   <script src="{{ 'fosstp:static/js/jquery.min.js'|static_path }}"></script>
   <script src="{{ 'fosstp:static/js/bootstrap.min.js'|static_path }}"></script>
+  {% block custom_footer %}{% endblock %}
 </body>
 </html>
