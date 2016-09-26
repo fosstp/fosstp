@@ -1,15 +1,5 @@
 {% extends 'base.jinja2' %}
 
-{% block custom_header %}
-<link rel="stylesheet" href="{{ 'fosstp:static/css/github-activity.min.css'|static_url }}">
-{% endblock %}
-
-{% block custom_footer %}
-<link rel="stylesheet" href="{{ 'fosstp:static/css/github-activity.min.css'|static_url }}">
-<script type="text/javascript" src="{{ 'fosstp:static/js/mustache.min.js'|static_url }}"></script>
-<script type="text/javascript" src="{{ 'fosstp:static/js/github-activity.min.js'|static_url }}">
-{% endblock %}
-
 {% block news_stats %} class="active"{% endblock %}
 
 {% block content %}
@@ -27,10 +17,7 @@
 <!-- container -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
-      <div class="fb-page" data-href="https://www.facebook.com/fosstp/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fosstp/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fosstp/">臺北市自由軟體推動小組</a></blockquote></div>
-    </div>
-    <div class="col-md-9">
+    <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">最新消息</h3>
@@ -40,26 +27,82 @@
             <thead>
               <th>序號</th>
               <th>標題</th>
+              <th>時間</th>
             </thead>
             <tbody>
               <tr>
                 <td>1</td>
                 <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
               </tr>
               <tr>
                 <td>2</td>
                 <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
               </tr>
               <tr>
                 <td>3</td>
                 <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
               </tr>
               <tr>
                 <td>4</td>
                 <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>測試標題</td>
+                <td>2016-01-01 00:00</td>
               </tr>
             </tbody>
           </table>
+          <a href="#" class="btn btn-info pull-right">顯示更多...</a>
         </div>
       </div>
       <ul class="pager">
@@ -67,6 +110,14 @@
           <li><a href="#">下一頁  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
       </ul>
     </div>
-  </div>
+    <div class="col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-8">
+      <a class="twitter-timeline" data-height="500" href="https://twitter.com/fosstp">Tweets by fosstp</a>
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div class="clearfix visible-sm-block visible-md-block"></div>
+    <div class="col-sm-3 col-lg-2">
+      <div class="fb-page" data-href="https://www.facebook.com/fosstp/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/fosstp/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fosstp/">臺北市自由軟體推動小組</a></blockquote></div>
+    </div>
+  </div><!-- row -->
 </div><!-- container -->
 {% endblock content %}
