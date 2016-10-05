@@ -1,4 +1,4 @@
-alembic==0.8.7
+alembic==0.8.8
 Jinja2==2.8
 Mako==1.0.4
 MarkupSafe==0.23
@@ -12,7 +12,7 @@ pyramid-mailer==0.14.1
 pyramid-mako==1.0.2
 pyramid-redis-sessions==1.0.1
 pyramid-sqlalchemy==1.6
-pyramid-tm==0.12.1
+pyramid-tm==1.0
 pyramid-wtforms==2.4.0
 python-editor==1.0.1
 redis==2.10.5
