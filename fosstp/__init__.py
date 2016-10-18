@@ -78,7 +78,6 @@ def main(global_config, **settings):
     config.add_route('download', '/download')
     config.add_route('link', '/link')
     config.add_route('address_book', '/address-book')
-    config.add_route('log', '/log')
     config.add_route('login', '/login')
 
     config.scan()
