@@ -6,3 +6,4 @@ development.ini
 .eggs
 .DS_Store
 .idea/
+.coverage

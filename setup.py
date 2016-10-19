@@ -8,28 +8,18 @@ with open(os.path.join(here, 'CHANGES.txt')) as f:
     CHANGES = f.read()
 
 requires = [
-    'pyramid==1.7.3',
-    'pyramid_jinja2==2.6.2',
-    'pyramid_debugtoolbar==3.0.4',
-    'pyramid_mailer==0.14.1',
-    'pyramid_wtforms==2.4.0',
-    'pyramid_tm==1.0',
-    'pyramid_sqlalchemy==1.6',
-    'pyramid_redis_sessions==1.0.1',
-    'alembic==0.8.8',
-    'PyMySQL==0.7.9',
-    'waitress==1.0.0',
-    'SQLAlchemy==1.0.15',
-    ]
-
-setup_requires = [
-    'pytest-runner',
-    ]
-
-test_requires = [
-    'pytest',
-    'WebTest',
-    'pytest-cov',
+    'pyramid',
+    'pyramid_jinja2',
+    'pyramid_debugtoolbar',
+    'pyramid_mailer',
+    'pyramid_wtforms',
+    'pyramid_tm',
+    'pyramid_sqlalchemy',
+    'pyramid_redis_sessions',
+    'alembic',
+    'PyMySQL',
+    'waitress',
+    'SQLAlchemy',
     ]
 
 setup(name='fosstp',
@@ -50,9 +40,6 @@ setup(name='fosstp',
       include_package_data=True,
       zip_safe=False,
       install_requires=requires,
-      setup_requires=setup_requires,
-      tests_require=test_requires,
-      test_suite="fosstp",
       entry_points="""\
       [paste.app_factory]
       main = fosstp:main
