@@ -20,6 +20,8 @@ requires = [
     'PyMySQL',
     'waitress',
     'SQLAlchemy',
+    'pytest',
+    'coverage'
     ]
 
 setup(name='fosstp',
