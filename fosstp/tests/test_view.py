@@ -54,11 +54,6 @@ class ViewTests(unittest.TestCase):
         info = link_view(self.request)
         self.assertEqual(info, {})
 
-    def test_address_book_view(self):
-        from ..views.address_book import address_book_view
-        info = address_book_view(self.request)
-        self.assertEqual(info, {})
-
     def test_login_view(self):
         from ..views.login import login_view
         info = login_view(self.request)
