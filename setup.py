@@ -21,7 +21,7 @@ requires = [
     'waitress',
     'SQLAlchemy',
     'pytest',
-    'coverage'
+    'pytest-cov'
     ]
 
 setup(name='fosstp',
