@@ -1,5 +1,5 @@
 from pyramid.view import view_config
-from ..forms import SignupForm
+from ..forms.user import SignupForm
 
 @view_config(route_name='signup', renderer='templates/signup.jinja2', request_method='GET')
 def signup_view_get(request):
@@ -12,7 +12,7 @@ def signup_view_post(request):
     import transaction
     from pyramid.httpexceptions import HTTPFound
     from pyramid_sqlalchemy import Session
-    from ..models import UserModel
+    from ..models.user import UserModel
 
     form = SignupForm(request.POST)
     if form.validate():

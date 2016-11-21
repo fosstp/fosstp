@@ -17,7 +17,7 @@ def main(global_config, **settings):
 
         def group_finder(userid, request):
             from pyramid_sqlalchemy import Session
-            from .models import UserModel
+            from .models.user import UserModel
 
             result = Session.query(UserModel).filter_by(name=userid).one_or_none()
             if result:

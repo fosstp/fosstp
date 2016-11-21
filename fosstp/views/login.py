@@ -1,5 +1,5 @@
 from pyramid.view import view_config
-from ..forms import LoginForm
+from ..forms.user import LoginForm
 
 @view_config(route_name='login', renderer='templates/login.jinja2', request_method='GET')
 def login_view_get(request):
@@ -12,7 +12,7 @@ def login_view_post(request):
     from pyramid.httpexceptions import HTTPFound
     from pyramid.security import remember
     from pyramid_sqlalchemy import Session
-    from ..models import UserModel
+    from ..models.user import UserModel
 
     form = LoginForm(request.POST)
     if form.validate():

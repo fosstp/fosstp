@@ -1,18 +1,18 @@
 from pyramid.view import view_config
-from ..forms import SettingsForm
+from ..forms.user import SettingsForm
 
-@view_config(route_name='settings', renderer='templates/settings.jinja2', request_method='GET')
+@view_config(route_name='settings', renderer='templates/settings.jinja2', request_method='GET', permission='edit')
 def settings_view_get(request):
     form = SettingsForm()
     return {'form': form}
 
-@view_config(route_name='settings', renderer='templates/settings.jinja2', request_method='POST')
+@view_config(route_name='settings', renderer='templates/settings.jinja2', request_method='POST', permission='edit')
 def settings_view_post(request):
     import bcrypt
     import transaction
     from pyramid.httpexceptions import HTTPFound
     from pyramid_sqlalchemy import Session
-    from ..models import UserModel
+    from ..models.user import UserModel
 
     form = SettingsForm(request.POST)
     if form.validate():
