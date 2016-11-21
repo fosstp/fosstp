@@ -1,0 +1,84 @@
+{% extends 'base.jinja2' %}
+
+{% block user_stats %} active{% endblock user_stats %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      {% if request.session.peek_flash('error') %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="alert alert-danger" role="alert">
+            {% for error in request.session.pop_flash('error') %}
+              舊密碼錯誤
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      <form action="" method="post">
+        {% if form.old_password.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.old_password.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="form-group">
+            <label for="old_password">舊密碼</label>
+            <input type="password" class="form-control" id="old_password" name="old_password" placeholder="舊密碼">
+          </div>
+        </div>
+        {% if form.new_password.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.new_password.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="form-group">
+            <label for="new_password">新密碼</label>
+            <input type="password" class="form-control" id="new_password" name="new_password" placeholder="新密碼">
+          </div>
+        </div>
+        {% if form.new_password_confirm.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.new_password_confirm.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="form-group">
+            <label for="new_password_confirm">再次輸入密碼</label>
+            <input type="password" class="form-control" id="new_password_confirm" name="new_password_confirm" placeholder="再次輸入新密碼">
+          </div>
+        </div>
+        {% if form.email.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.email.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="col-xs-12 text-center">
+          <button type="submit" class="btn btn-default">更新</button>
+        </div>
+      </form>
+    </div>
+  </div><!-- container -->
+{% endblock content %}

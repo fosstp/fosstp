@@ -16,8 +16,5 @@ class UserModel(BaseObject):
     # 群組，若要多值用,隔開。此欄位只有管理者可異動
     group = Column(String(255), nullable=False, default='member')
 
-    # 真實姓名
-    realname = Column(String(255))
-
     # email
-    email = Column(String(255))
+    email = Column(String(255), nullable=False)

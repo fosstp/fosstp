@@ -41,7 +41,7 @@
           <li{% block forum_stats %}{% endblock %}>
               <a href="{{ 'forum'|route_path }}"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 討論區</a>
           </li>
-          <li class="dropdown">
+          <li class="dropdown{% block share_stats %}{% endblock %}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>資源分享 <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li{% block download_stats %}{% endblock %}>
@@ -56,11 +56,11 @@
 
         <ul class="nav navbar-nav navbar-right">
           {% if request.user %}
-            <li class="dropdown">
+            <li class="dropdown{% block user_stats %}{% endblock %}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ request.user }} <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 帳號設定</a>
+                  <a href="{{ 'settings'|route_path }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 帳號設定</a>
                 </li>
                 <li>
                   <a href="{{ 'logout'|route_path }}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 登出</a>
@@ -69,6 +69,7 @@
             </li>
           {% else %}
             <li{% block login_stats %}{% endblock %}><a href="{{ 'login'|route_path }}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> 登入</a></li>
+            <li{% block signup_stats %}{% endblock %}><a href="{{ 'signup'|route_path }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 註冊</a></li>
           {% endif %}
         </ul>
       </div>
