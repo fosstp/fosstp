@@ -7,7 +7,7 @@ def main(global_config, **settings):
 
     # auth settings
     if asbool(settings['auth_mode']):
-        from pyramid.security import Allow, Deny, Everyone, Authenticated, DENY_ALL, ALL_PERMISSIONS
+        from pyramid.security import Allow, Everyone, Authenticated, DENY_ALL, ALL_PERMISSIONS
         from pyramid.authentication import AuthTktAuthenticationPolicy
         from pyramid.authorization import ACLAuthorizationPolicy
 
@@ -16,15 +16,18 @@ def main(global_config, **settings):
             return unauthenticated_userid(request)
 
         def group_finder(userid, request):
-            if userid == 'foo':
-                return ['group:users']
+            from pyramid_sqlalchemy import Session
+            from .models import UserModel
+
+            result = Session.query(UserModel).filter_by(name=userid).one_or_none()
+            if result:
+                return result.group.split(',')
+
 
         class RootFactory:
             __acl__ = [
-                (Allow, 'bar', 'WHAT_EVER_YOU_LIKE'),
-                (Allow, 'group:users', 'WHAT_EVER_YOU_LIKE'),
+                (Allow, Authenticated, 'edit'),
                 (Allow, 'admin', ALL_PERMISSIONS),
-                DENY_ALL
             ]
 
             def __init__(self, request):
@@ -60,13 +63,13 @@ def main(global_config, **settings):
 
     # transaction manager settings, used by pyramid_sqlalchemy and
     # pyramid_mailer
-    #config.include('pyramid_tm')
+    config.include('pyramid_tm')
 
     # database settings
-    #config.include('pyramid_sqlalchemy')
+    config.include('pyramid_sqlalchemy')
 
     # mailer settings
-    #config.include('pyramid_mailer')
+    config.include('pyramid_mailer')
 
     config.add_static_view('static', 'static', cache_max_age=3600)
     config.add_route('home', '/')
@@ -78,6 +81,7 @@ def main(global_config, **settings):
     config.add_route('download', '/download')
     config.add_route('link', '/link')
     config.add_route('login', '/login')
+    config.add_route('logout', '/logout')
 
     config.scan()
     return config.make_wsgi_app()

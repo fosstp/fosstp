@@ -4,6 +4,51 @@
 
 {% block content %}
   <div class="container-fluid">
-    登入
+    <div class="row">
+      {% if request.session.peek_flash('error') %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="alert alert-danger" role="alert">
+            {% for error in request.session.pop_flash('error') %}
+              帳號或密碼錯誤
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      <form action="" method="post">
+        {% if form.name.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.name.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="form-group">
+            <label for="name">帳號</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="帳號">
+          </div>
+        </div>
+        {% if form.password.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.password.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="form-group">
+            <label for="password">密碼</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="密碼">
+          </div>
+        </div>
+        <div class="col-xs-12 text-center">
+          <button type="submit" class="btn btn-default">登入</button>
+        </div>
+      </form>
+    </div>
   </div><!-- container -->
 {% endblock content %}

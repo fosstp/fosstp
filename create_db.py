@@ -12,7 +12,7 @@ config_file = sys.argv[1]
 settings = get_appsettings(config_file)
 
 BaseObject = declarative_base()
-from osstp.models import *
+from fosstp.models import *
 
 engine = engine_from_config(settings, 'sqlalchemy.')
 BaseObject.metadata.create_all(engine)
