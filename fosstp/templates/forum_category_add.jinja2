@@ -1,0 +1,45 @@
+{% extends 'base.jinja2' %}
+
+{% block forum_stats %} class="active"{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <form action="" method="post">
+      <div class="row">
+        {% if form.name.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.name.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="form-group">
+            <label for="name">標題</label>
+            {{ form.name(class_='form-control', id='name', placeholder='標題') }}
+          </div>
+        </div>
+        {% if form.description.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.description.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="form-group">
+            <label for="description">說明</label>
+            {{ form.description(class_='form-control', id='description', placeholder='說明') }}
+          </div>
+        </div>
+        <div class="col-xs-12 text-center">
+          <button type="submit" class="btn btn-primary">新增</button>
+        </div>
+      </div>
+    </form>
+  </div><!-- container -->
+{% endblock content %}

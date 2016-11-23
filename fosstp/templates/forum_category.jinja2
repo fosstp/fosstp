@@ -1,0 +1,29 @@
+{% extends 'base.jinja2' %}
+
+{% block forum_stats %} class="active"{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+        <ul class="breadcrumb">
+          <li><a href="{{ request.route_path('forum') }}">討論區</a></li>
+          <li class="active">{{ forum_category.name }}</li>
+        </ul>
+      </div>
+      <div class="col-sm-offset-1 col-sm-10">
+        <div class="list-group">
+          {% for forum_topic in forum_category.topics %}
+            <a href="#" class="list-group-item">
+              <span class="badge">0</span>
+              {{ forum_topic.title }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-sm-offset-1 col-sm-10 text-center">
+        <a class="btn btn-primary" href="#">新增討論主題</a>
+      </div>
+    </div>
+  </div><!-- container -->
+{% endblock content %}

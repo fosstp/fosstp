@@ -4,6 +4,20 @@
 
 {% block content %}
   <div class="container-fluid">
-    討論區
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+        <div class="list-group">
+          {% for forum_category in forum_categories %}
+            <a href="{{ request.route_path('forum_category', id=forum_category.id) }}" class="list-group-item">
+              <h4 class="list-group-item-heading">{{ forum_category.name }}</h4>
+              <p class="list-group-item-text">{{ forum_category.description }}</p>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-sm-offset-1 col-sm-10 text-center">
+        <a class="btn btn-primary" href="{{ request.route_path('forum_category_add') }}">新增討論區分類</a>
+      </div>
+    </div>
   </div><!-- container -->
 {% endblock content %}

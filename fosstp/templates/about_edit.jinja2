@@ -5,25 +5,25 @@
 {% block content %}
   <div class="container-fluid">
     <form action="" method="post">
-    <div class="row">
-      {% if form.content.errors %}
+      <div class="row">
+        {% if form.content.errors %}
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" role="alert">
+              {% for error in form.content.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <div class="alert alert-danger" role="alert">
-            {% for error in form.content.errors %}
-              {{ error }}
-            {% endfor %}
+          <div class="form-group">
+            <label for="content">內容</label>
+            {{ form.content(class_='form-control', id='content', placeholder='內容') }}
           </div>
         </div>
-      {% endif %}
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <div class="form-group">
-          <label for="content">內容</label>
-          {{ form.content(class_='form-control', id='content', placeholder='內容') }}
+        <div class="col-xs-12 text-center">
+          <button type="submit" class="btn btn-primary">更新</button>
         </div>
-      </div>
-      </div>
-      <div class="col-xs-12 text-center">
-        <button type="submit" class="btn btn-primary">更新</button>
       </div>
     </form>
   </div><!-- container -->
