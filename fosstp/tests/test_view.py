@@ -24,15 +24,15 @@ class ViewTests(unittest.TestCase):
         info = news_view(self.request)
         self.assertEqual(info, {})
 
-    def test_about_view(self):
-        from ..views.about import about_view
-        info = about_view(self.request)
-        self.assertEqual(info, {})
+    #def test_about_view(self):
+    #    from ..views.about import about_view
+    #    info = about_view(self.request)
+    #    self.assertEqual(info, {})
 
-    def test_workshop_view(self):
-        from ..views.workshop import workshop_view
-        info = workshop_view(self.request)
-        self.assertEqual(info, {})
+    #def test_workshop_view(self):
+    #    from ..views.workshop import workshop_view
+    #    info = workshop_view(self.request)
+    #    self.assertEqual(info, {})
 
     def test_planet_view(self):
         from ..views.planet import planet_view
@@ -55,7 +55,9 @@ class ViewTests(unittest.TestCase):
         self.assertEqual(info, {})
 
     def test_login_view(self):
-        from ..views.login import login_view
-        info = login_view(self.request)
-        self.assertEqual(info, {})
+        from ..views.login import login_view_get
+        from ..forms.user import LoginForm
+
+        info = login_view_get(self.request)
+        self.assertIsInstance(info['form'], LoginForm)
 
