@@ -1,5 +1,10 @@
 from pyramid_sqlalchemy import BaseObject
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+from .forum import ForumTopicModel, ForumReplyModel
+
+
+__all__ = ['UserModel']
 
 class UserModel(BaseObject):
     '''使用者帳號'''
@@ -19,3 +24,9 @@ class UserModel(BaseObject):
 
     # email
     email = Column(String(255), nullable=False)
+
+    # 發表的討論區文章
+    forum_topics = relationship(ForumTopicModel, backref='user')
+
+    # 發表的討論區回應
+    forum_replies = relationship(ForumReplyModel, backref='user')

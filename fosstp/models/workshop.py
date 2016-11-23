@@ -1,6 +1,9 @@
 from pyramid_sqlalchemy import BaseObject
 from sqlalchemy import Column, Integer, Text
 
+
+__all__ = ['WorkshopModel']
+
 class WorkshopModel(BaseObject):
     '''行事曆連結'''
 

@@ -14,9 +14,11 @@ fileConfig(config.config_file_name)
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-from fosstp.models import BaseObject
-#from fosstp.models.user import BaseObject
+from pyramid_sqlalchemy import BaseObject                                                                                 
+from fosstp.models.user import *
+from fosstp.models.workshop import *
+from fosstp.models.about import *
+from fosstp.models.forum import *
 target_metadata = BaseObject.metadata
 
 # other values from the config, defined by the needs of env.py,

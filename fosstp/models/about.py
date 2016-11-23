@@ -1,6 +1,8 @@
 from pyramid_sqlalchemy import BaseObject
 from sqlalchemy import Column, Integer, Text
 
+__all__ = ['AboutModel']
+
 class AboutModel(BaseObject):
     '''關於本站'''
 
