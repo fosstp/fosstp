@@ -8,3 +8,4 @@ development.ini
 .DS_Store
 .idea/
 .coverage
+alembic.ini

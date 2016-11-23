@@ -3,6 +3,7 @@ from sqlalchemy import Column, Integer, String
 
 class UserModel(BaseObject):
     '''使用者帳號'''
+
     __tablename__ = 'users'
 
     id    = Column(Integer, primary_key=True)

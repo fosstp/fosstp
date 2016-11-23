@@ -1,0 +1,30 @@
+{% extends 'base.jinja2' %}
+
+{% block workshop_stats %} class="active"{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <form action="" method="post">
+    <div class="row">
+      {% if form.link.errors %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="alert alert-danger" role="alert">
+            {% for error in form.link.errors %}
+              {{ error }}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="form-group">
+          <label for="link">Google 行事曆嵌入連結</label>
+          {{ form.link(class_='form-control', id='link', placeholder='Google 行事曆嵌入連結') }}
+        </div>
+      </div>
+      </div>
+      <div class="col-xs-12 text-center">
+        <button type="submit" class="btn btn-primary">更新</button>
+      </div>
+    </form>
+  </div><!-- container -->
+{% endblock content %}

@@ -15,6 +15,15 @@ def main(global_config, **settings):
             from pyramid.security import unauthenticated_userid
             return unauthenticated_userid(request)
 
+        def get_group(request):
+            from pyramid_sqlalchemy import Session
+            from .models.user import UserModel
+
+            user = request.user
+            if user:
+                result = Session.query(UserModel).filter_by(name=user).one()
+                return result.group
+
         def group_finder(userid, request):
             from pyramid_sqlalchemy import Session
             from .models.user import UserModel
@@ -44,6 +53,7 @@ def main(global_config, **settings):
                               authorization_policy=authz_policy)
 
         config.add_request_method(get_user, 'user', reify=True)
+        config.add_request_method(get_group, 'group', reify=True)
     else:
         config = Configurator(settings=settings)
 
@@ -75,6 +85,7 @@ def main(global_config, **settings):
     config.add_route('home', '/')
     config.add_route('news', '/news')
     config.add_route('workshop', '/workshop')
+    config.add_route('workshop_edit', '/workshop/edit')
     config.add_route('planet', '/planet')
     config.add_route('forum', '/forum')
     config.add_route('about_this_site', '/about-this-site')
