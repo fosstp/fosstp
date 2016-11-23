@@ -18,9 +18,9 @@ def login_view_post(request):
     if form.validate():
         user = Session.query(UserModel).filter_by(name=form.name.data).one_or_none()
         if user and bcrypt.hashpw(form.password.data.encode('utf-8'), user.password.encode('utf-8')) == user.password.encode('utf-8'):
-            headers = remember(request, form.name.data)
             request.session['id'] = user.id
             request.session['group'] = user.group
+            headers = remember(request, form.name.data)
             raise HTTPFound(location=request.route_path('news'), headers=headers)
         else:
             request.session.flash('帳號或密碼錯誤', 'error')

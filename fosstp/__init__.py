@@ -90,6 +90,7 @@ def main(global_config, **settings):
     config.add_route('forum', '/forum')
     config.add_route('forum_category', '/forum_category/{id:\d+}')
     config.add_route('forum_category_add', '/forum_category/add')
+    config.add_route('forum_topic_add', '/forum_category/{id:\d+}/topic_add')
     config.add_route('about', '/about')
     config.add_route('about_edit', '/about/edit')
     config.add_route('download', '/download')
