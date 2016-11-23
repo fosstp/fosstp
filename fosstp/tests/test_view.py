@@ -24,9 +24,9 @@ class ViewTests(unittest.TestCase):
         info = news_view(self.request)
         self.assertEqual(info, {})
 
-    def test_about_this_site_view(self):
-        from ..views.about_this_site import about_this_site_view
-        info = about_this_site_view(self.request)
+    def test_about_view(self):
+        from ..views.about import about_view
+        info = about_view(self.request)
         self.assertEqual(info, {})
 
     def test_workshop_view(self):

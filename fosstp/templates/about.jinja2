@@ -1,0 +1,20 @@
+{% extends 'base.jinja2' %}
+
+{% block about_stats %} class="active"{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      {% if about %}
+        {{ about.content|safe }}
+      {% endif %}
+    </div>
+    {% if request.group == 'admin' %}
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <a class="btn btn-primary" href="{{ request.route_path('about_edit') }}">編輯</a>
+        </div>
+      </div>
+    {% endif %}
+  </div><!-- container -->
+{% endblock content %}

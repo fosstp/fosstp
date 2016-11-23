@@ -22,6 +22,7 @@ def workshop_edit_view_post(request):
 
     form = WorkshopEditForm(request.POST)
     if form.validate():
+        # transaction 遇到 exception 會 abort，因此手工處理
         with transaction.manager:
             workshop = Session.query(WorkshopModel).one_or_none()
             if workshop:

@@ -29,8 +29,8 @@
           <li{% block news_stats %}{% endblock %}>
               <a href="{{ 'news'|route_path }}"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 最新消息</a>
           </li>
-          <li{% block about_this_site_stats %}{% endblock %}>
-              <a href="{{ 'about_this_site'|route_path }}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 關於本站</a>
+          <li{% block about_stats %}{% endblock %}>
+              <a href="{{ 'about'|route_path }}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 關於本站</a>
           </li>
           <li{% block workshop_stats %}{% endblock %}>
               <a href="{{ 'workshop'|route_path }}"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 研習資訊</a>
