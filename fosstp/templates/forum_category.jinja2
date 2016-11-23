@@ -15,8 +15,8 @@
         <div class="list-group">
           {% for forum_topic in forum_category.topics %}
             <a href="#" class="list-group-item">
-              <span class="badge">0</span>
               {{ forum_topic.title }}
+              <span class="pull-right">{{ forum_topic.user.name }}</span>
             </a>
           {% endfor %}
         </div>

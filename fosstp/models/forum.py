@@ -1,5 +1,6 @@
+from datetime import datetime
 from pyramid_sqlalchemy import BaseObject
-from sqlalchemy import Column, Integer, String, Text, ForeignKey
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 
 __all__ = ['ForumCategoryModel', 'ForumTopicModel', 'ForumReplyModel']
@@ -40,6 +41,9 @@ class ForumTopicModel(BaseObject):
     # 有哪些回文
     forum_replies = relationship('ForumReplyModel', backref='topic')
 
+    # 建立時間
+    create_datetime = Column(DateTime, default=datetime.now)
+
 class ForumReplyModel(BaseObject):
     '''討論區每筆回文'''
 
@@ -55,3 +59,6 @@ class ForumReplyModel(BaseObject):
 
     # 作者是誰
     user_id = Column(Integer, ForeignKey('users.id'))
+
+    # 建立時間
+    create_datetime = Column(DateTime, default=datetime.now)
