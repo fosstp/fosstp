@@ -12,7 +12,9 @@ class ForumCategoryModel(BaseObject):
     id = Column(Integer, primary_key=True)
 
     # 分類名稱
-    name = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False, default='')
+
+    description = Column(Text, nullable=False, default='')
 
     topics = relationship('ForumTopicModel', backref='category')
 
@@ -24,10 +26,10 @@ class ForumTopicModel(BaseObject):
     id = Column(Integer, primary_key=True)
 
     # 主題
-    title = Column(String(255), nullable=False)
+    title = Column(String(255), nullable=False, default='')
 
     # 內容
-    content = Column(Text, nullable=False)
+    content = Column(Text, nullable=False, default='')
 
     # 屬於哪個討論區分類
     category_id = Column(Integer, ForeignKey('forum_categories.id'))
@@ -46,7 +48,7 @@ class ForumReplyModel(BaseObject):
     id = Column(Integer, primary_key=True)
 
     # 內容
-    content = Column(Text, nullable=False)
+    content = Column(Text, nullable=False, default='')
 
     # 哪篇主題
     forum_topic_id = Column(Integer, ForeignKey('forum_topics.id'))
