@@ -5,9 +5,18 @@
 {% block content %}
   <div class="container-fluid">
     <div class="row">
-      {% if workshop %}
-        {{ workshop.link|safe }}
-      {% endif %}
+      <div class="col-sm-offset-1 col-sm-10">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">研習資訊</h3>
+          </div>
+          <div class="panel-body">
+            {% if workshop %}
+              {{ workshop.link|safe }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </div>
     {% if request.group == 'admin' %}
       <div class="row">

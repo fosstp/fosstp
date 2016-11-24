@@ -1,0 +1,37 @@
+{% extends 'base.jinja2' %}
+
+{% block news_stats %} class="active"{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+        <ul class="breadcrumb">
+          <li><a href="{{ request.route_path('news') }}">最新消息</a></li>
+          <li class="active">{{ news.title }}</li>
+        </ul>
+      </div>
+      <div class="col-sm-offset-1 col-sm-10">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              {{ news.title }}
+            </h3>
+          </div>
+          <div class="panel-body">
+            {{ markdown(news.content)|safe }}
+          </div>
+          <div class="panel-footer">
+            發表：{{ news.user.name }}
+            時間：{{ news.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}
+          </div>
+        </div>
+      </div>
+      {% if request.group == 'admin' %}
+        <div class="col-sm-offset-1 col-sm-10 text-center">
+          <a class="btn btn-primary" href="{{ request.route_path('news_edit', id=news.id) }}">編輯</a>
+        </div>
+      {% endif %}
+    </div>
+  </div><!-- container -->
+{% endblock content %}

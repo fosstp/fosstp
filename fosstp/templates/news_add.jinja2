@@ -1,6 +1,6 @@
 {% extends 'base.jinja2' %}
 
-{% block forum_stats %} class="active"{% endblock %}
+{% block news_stats %} class="active"{% endblock %}
 
 {% block content %}
   <div class="container-fluid">
@@ -9,35 +9,35 @@
         <div class="col-sm-offset-1 col-sm-10">
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">新增討論區分類</h3>
+            <h3 class="panel-title">新增最新消息文章</h3>
           </div>
           <div class="panel-body">
-            {% if form.name.errors %}
+            {% if form.title.errors %}
               <div class="alert alert-danger" role="alert">
-                {% for error in form.name.errors %}
+                {% for error in form.title.errors %}
                   {{ error }}
                 {% endfor %}
               </div>
             {% endif %}
             <div class="form-group">
-              <label for="name">標題</label>
-              {{ form.name(class_='form-control', id='name', placeholder='標題') }}
+              <label for="title">標題</label>
+              {{ form.title(class_='form-control', id='title', placeholder='標題') }}
             </div>
-            {% if form.description.errors %}
+            {% if form.content.errors %}
               <div class="alert alert-danger" role="alert">
-                {% for error in form.description.errors %}
+                {% for error in form.content.errors %}
                   {{ error }}
                 {% endfor %}
               </div>
             {% endif %}
             <div class="form-group">
-              <label for="description">說明</label>
-              {{ form.description(class_='form-control', id='description', placeholder='說明', rows=10) }}
+              <label for="content">內容</label>
+              {{ form.content(class_='form-control', id='content', placeholder='內容', rows=10) }}
             </div>
           </div>
         </div>
         <div class="col-sm-offset-1 col-sm-10 text-center">
-          <button type="submit" class="btn btn-primary">新增分類</button>
+          <button type="submit" class="btn btn-primary">新增文章</button>
         </div>
       </div>
     </form>

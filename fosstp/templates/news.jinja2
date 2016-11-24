@@ -11,68 +11,19 @@
             <h3 class="panel-title">最新消息</h3>
           </div>
           <div class="panel-body">
-            <table class="table table-striped">
-              <thead>
-                <th>序號</th>
-                <th>標題</th>
-                <th>時間</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>測試標題</td>
-                  <td>2016-01-01 00:00</td>
-                </tr>
-              </tbody>
-            </table>
-            <a href="#" class="btn btn-info btn-xs pull-right">顯示更多...</a>
+            <div class="list-group">
+              {% for each_news in news %}
+                <a href="{{ request.route_path('news_show', id=each_news.id) }}" class="list-group-item">
+                  {{ each_news.title }}
+                  <span class="pull-right">{{ each_news.user.name }} {{ each_news.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                </a>
+              {% endfor %}
+            </div>
           </div>
         </div>
+      </div>
+      <div class="col-sm-offset-1 col-sm-10 text-center">
+        <a class="btn btn-primary" href="{{ request.route_path('news_add') }}">新增文章</a>
       </div>
     </div>
   </div><!-- container -->
