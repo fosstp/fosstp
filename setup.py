@@ -23,7 +23,8 @@ requires = [
     'pytest',
     'pytest-cov',
     'bcrypt',
-    'Markdown'
+    'Markdown',
+    'feedparser'
     ]
 
 setup(name='fosstp',
