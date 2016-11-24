@@ -12,12 +12,9 @@ class ViewTests(unittest.TestCase):
         testing.tearDown()
 
     def test_home_view(self):
-        from pyramid.httpexceptions import HTTPFound
         from ..views.home import home_view
-
-        with self.assertRaises(HTTPFound):
-            self.config.add_route('news', '/news')
-            home_view(self.request)
+        info = home_view(self.request)
+        self.assertEqual(info, {})
 
     def test_news_view(self):
         from ..views.news import news_view
@@ -39,10 +36,10 @@ class ViewTests(unittest.TestCase):
         info = planet_view(self.request)
         self.assertEqual(info, {})
 
-    def test_forum_view(self):
-        from ..views.forum import forum_view
-        info = forum_view(self.request)
-        self.assertEqual(info, {})
+    #def test_forum_view(self):
+    #    from ..views.forum import forum_view
+    #    info = forum_view(self.request)
+    #    self.assertEqual(info, {})
 
     def test_download_view(self):
         from ..views.download import download_view
