@@ -15,72 +15,25 @@
 <!-- container -->
 <div class="container-fluid">
   <div class="row">
+    <img class="img-responsive center-block" style="margin: -22px auto -22px auto;" src="{{ 'fosstp:static/banner.png'|static_path }}">
+  </div>
+  <hr>
+  <div class="row">
     <div class="col-sm-9 col-sm-push-3 col-lg-9 col-lg-push-2">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">最新消息</h3>
         </div>
         <div class="panel-body">
-          <table class="table table-striped">
-            <thead>
-              <th>序號</th>
-              <th>標題</th>
-              <th>時間</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="{{ request.route_path('news') }}" class="btn btn-info btn-xs pull-right">顯示更多...</a>
+          <div class="list-group">
+            {% for each_news in news_list %}
+              <a href="{{ request.route_path('news_show', id=each_news.id) }}" class="list-group-item">
+                {{ each_news.title }}
+                <span class="pull-right">{{ each_news.user.name }} {{ each_news.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+              </a>
+            {% endfor %}
+          </div>
+          <a href="{{ request.route_path('news') }}" class="btn btn-info btn-xs pull-right"> 顯示更多...</a>
         </div>
       </div>
       <div class="panel panel-primary">
@@ -88,77 +41,15 @@
           <h3 class="panel-title">最新討論</h3>
         </div>
         <div class="panel-body">
-          <table class="table table-striped">
-            <thead>
-              <th>序號</th>
-              <th>標題</th>
-              <th>時間</th>
-              <th>作者</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>測試標題</td>
-                <td>2016-01-01 00:00</td>
-                <td>王大毛</td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="{{ request.route_path('forum') }}" class="btn btn-info btn-xs pull-right">顯示更多...</a>
+          <div class="list-group">
+            {% for each_forum_topic in forum_topic_list %}
+              <a href="{{ request.route_path('forum_topic', id=each_forum_topic.id) }}" class="list-group-item">
+                {{ each_forum_topic.title }}
+                <span class="pull-right">{{ each_forum_topic.user.name }} {{ each_forum_topic.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+              </a>
+            {% endfor %}
+          </div>
+          <a href="{{ request.route_path('forum') }}" class="btn btn-info btn-xs pull-right"> 顯示更多...</a>
         </div>
       </div>
     </div>
