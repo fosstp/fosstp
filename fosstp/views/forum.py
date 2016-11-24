@@ -36,7 +36,7 @@ def forum_category_add_view_post(request):
     else:
         return {'form': form}
 
-@view_config(route_name='forum_topic', renderer='templates/forum_topic.jinja2', request_method='GET', permission='member')
+@view_config(route_name='forum_topic', renderer='templates/forum_topic.jinja2', request_method='GET')
 def forum_topic_view_get(request):
     forum_topic = Session.query(ForumTopicModel).get(int(request.matchdict['id']))
     forum_reply_form = ForumReplyAddForm()

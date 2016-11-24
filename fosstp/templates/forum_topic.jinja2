@@ -56,13 +56,15 @@
               {% endfor %}
             </div>
           {% endif %}
-          <div class="form-group">
-            <label for="content">新增回應</label>
-            {{ forum_reply_form.content(class_='form-control', id='content', placeholder='內容') }}
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary">新增回應</button>
-          </div>
+          {% if request.user %}
+            <div class="form-group">
+              <label for="content">新增回應</label>
+              {{ forum_reply_form.content(class_='form-control', id='content', placeholder='內容') }}
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">新增回應</button>
+            </div>
+          {% endif %}
         </form>
       </div>
     </div>
