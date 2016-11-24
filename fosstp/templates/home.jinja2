@@ -19,7 +19,7 @@
   </div>
   <hr>
   <div class="row">
-    <div class="col-sm-9 col-sm-push-3 col-lg-9 col-lg-push-2">
+    <div class="col-sm-9 col-sm-push-3 col-lg-8 col-lg-push-2">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">最新消息</h3>
@@ -53,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-9">
+    <div class="col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-8">
       <div class="row">
         <div class="col-xs-12">
           <a class="twitter-timeline" data-height="500" href="https://twitter.com/fosstp">Tweets by fosstp</a>
@@ -65,8 +65,16 @@
       </div>
     </div>
     <div class="clearfix visible-sm-block visible-md-block"></div>
-    <div class="col-sm-3 col-lg-1">
-      友站連結
+    <div class="col-sm-3 col-lg-2">
+      <div class="text-center">好站連結</div>
+      <hr style="margin-top: 0px;">
+      <div class="list-group list-group-item-info">
+        {% for each_link in link_list %}
+          <a href="{{ each_link.link }}" target="_blank" class="list-group-item">
+            {{ each_link.name }}
+          </a>
+        {% endfor %}
+      </div>
     </div>
   </div><!-- row -->
 </div><!-- container -->

@@ -3,6 +3,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from .forum import ForumTopicModel, ForumReplyModel
 from .news import NewsModel
+from .link import LinkModel
 
 
 __all__ = ['UserModel']
@@ -34,3 +35,6 @@ class UserModel(BaseObject):
 
     # 發表的最新消息
     news = relationship(NewsModel, backref='user')
+
+    # 發表的好站連結
+    links = relationship(LinkModel, backref='user')
