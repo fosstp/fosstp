@@ -1,6 +1,7 @@
 from datetime import datetime
 from pyramid_sqlalchemy import BaseObject
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Text
+from sqlalchemy.orm import relationship
 
 
 __all__ = ['PlanetModel']
@@ -20,3 +21,23 @@ class PlanetModel(BaseObject):
 
     # 建立時間
     create_datetime = Column(DateTime, default=datetime.now)
+
+    contents = relationship('PlanetContentModel', backref='planet')
+
+class PlanetContentModel(BaseObject):
+    '''星球聯播內容'''
+
+    __tablename__ = 'planet_contents'
+
+    id = Column(Integer, primary_key=True)
+
+    # 文章標題
+    title = Column(String(255), nullable=False, default='')
+
+    # 文章內容
+    content = Column(Text, nullable=False, default='')
+
+    # 文章連結
+    link = Column(String(255), nullable=False, default='')
+
+    planet_id = Column(Integer, ForeignKey('planets.id'))
