@@ -14,16 +14,18 @@
       <div class="col-sm-offset-1 col-sm-10">
         <div class="list-group">
           {% for forum_topic in forum_category.topics %}
-            <a href="#" class="list-group-item">
+            <a href="{{ request.route_path('forum_topic', id=forum_topic.id) }}" class="list-group-item">
               {{ forum_topic.title }}
-              <span class="pull-right">{{ forum_topic.user.name }}</span>
+              <span class="pull-right">{{ forum_topic.user.name }} {{ forum_topic.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}</span>
             </a>
           {% endfor %}
         </div>
       </div>
-      <div class="col-sm-offset-1 col-sm-10 text-center">
-        <a class="btn btn-primary" href="{{ request.route_path('forum_topic_add', id=forum_category.id) }}">新增討論主題</a>
-      </div>
+      {% if request.user %}
+        <div class="col-sm-offset-1 col-sm-10 text-center">
+          <a class="btn btn-primary" href="{{ request.route_path('forum_topic_add', id=forum_category.id) }}">新增討論主題</a>
+        </div>
+      {% endif %}
     </div>
   </div><!-- container -->
 {% endblock content %}

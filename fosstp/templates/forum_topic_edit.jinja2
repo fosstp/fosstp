@@ -5,11 +5,13 @@
 {% block content %}
   <div class="container-fluid">
     <form action="" method="post">
+      {{ form.id() }}
       <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
           <ul class="breadcrumb">
             <li><a href="{{ request.route_path('forum') }}">討論區</a></li>
-            <li><a href="{{ request.route_path('forum_category', id=forum_category.id) }}">{{ forum_category.name }}</a></li>
+            <li><a href="{{ request.route_path('forum_category', id=forum_topic.category_id) }}">{{ forum_topic.category.name }}</a></li>
+            <li><a href="{{ request.route_path('forum_topic', id=forum_topic.id) }}">{{ forum_topic.title }}</a></li>
           </ul>
         </div>
         {% if form.title.errors %}
@@ -43,7 +45,7 @@
           </div>
         </div>
         <div class="col-xs-12 text-center">
-          <button type="submit" class="btn btn-primary">新增主題</button>
+          <button type="submit" class="btn btn-primary">更新主題</button>
         </div>
       </div>
     </form>

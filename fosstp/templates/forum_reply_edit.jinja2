@@ -5,27 +5,14 @@
 {% block content %}
   <div class="container-fluid">
     <form action="" method="post">
+      {{ form.id() }}
       <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
           <ul class="breadcrumb">
             <li><a href="{{ request.route_path('forum') }}">討論區</a></li>
-            <li><a href="{{ request.route_path('forum_category', id=forum_category.id) }}">{{ forum_category.name }}</a></li>
+            <li><a href="{{ request.route_path('forum_category', id=forum_reply.topic.category_id) }}">{{ forum_reply.topic.category.name }}</a></li>
+            <li><a href="{{ request.route_path('forum_topic', id=forum_reply.topic.id) }}">{{ forum_reply.topic.title }}</a></li>
           </ul>
-        </div>
-        {% if form.title.errors %}
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-            <div class="alert alert-danger" role="alert">
-              {% for error in form.title.errors %}
-                {{ error }}
-              {% endfor %}
-            </div>
-          </div>
-        {% endif %}
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <div class="form-group">
-            <label for="title">主題</label>
-            {{ form.title(class_='form-control', id='title', placeholder='主題') }}
-          </div>
         </div>
         {% if form.content.errors %}
           <div class="col-xs-12 col-sm-8 col-sm-offset-2">
@@ -43,7 +30,7 @@
           </div>
         </div>
         <div class="col-xs-12 text-center">
-          <button type="submit" class="btn btn-primary">新增主題</button>
+          <button type="submit" class="btn btn-primary">更新回應</button>
         </div>
       </div>
     </form>

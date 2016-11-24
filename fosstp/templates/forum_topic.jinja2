@@ -1,0 +1,70 @@
+{% extends 'base.jinja2' %}
+
+{% block forum_stats %} class="active"{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+        <ul class="breadcrumb">
+          <li><a href="{{ request.route_path('forum') }}">討論區</a></li>
+          <li><a href="{{ request.route_path('forum_category', id=forum_topic.category_id) }}">{{ forum_topic.category.name }}</a></li>
+          <li class="active">{{ forum_topic.title }}</li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              {{ forum_topic.title }}
+            </h3>
+          </div>
+          <div class="panel-body">
+            {{ forum_topic.content }}
+          </div>
+          <div class="panel-footer">
+            發表：{{ forum_topic.user.name }}
+            時間：{{ forum_topic.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}
+            {% if request.session['id'] == forum_topic.user_id %}
+              <a class="btn btn-info btn-xs pull-right" href="{{ request.route_path('forum_topic_edit', id=forum_topic.id) }}">修改主題</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% for forum_reply in forum_topic.forum_replies %}
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              {{ forum_reply.content }}
+            </div>
+            <div class="panel-footer">
+              發表：{{ forum_reply.user.name }}
+              時間：{{ forum_reply.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}
+              {% if request.session['id'] == forum_reply.user_id %}
+                <a class="btn btn-success btn-xs pull-right" href="{{ request.route_path('forum_reply_edit', id=forum_reply.id) }}">修改回應</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <form action="" method="post">
+          {% if forum_reply_form.content.errors %}
+            <div class="alert alert-danger" role="alert">
+              {% for error in forum_reply_form.content.errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="form-group">
+            <label for="content">新增回應</label>
+            {{ forum_reply_form.content(class_='form-control', id='content', placeholder='內容') }}
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">新增回應</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div><!-- container -->
+{% endblock content %}
