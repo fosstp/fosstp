@@ -16,10 +16,10 @@ class ViewTests(unittest.TestCase):
         info = home_view(self.request)
         self.assertEqual(info, {})
 
-    def test_news_view(self):
-        from ..views.news import news_view
-        info = news_view(self.request)
-        self.assertEqual(info, {})
+    #def test_news_view(self):
+    #    from ..views.news import news_view
+    #    info = news_view(self.request)
+    #    self.assertEqual(info, {})
 
     #def test_about_view(self):
     #    from ..views.about import about_view
