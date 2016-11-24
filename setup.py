@@ -22,7 +22,8 @@ requires = [
     'SQLAlchemy',
     'pytest',
     'pytest-cov',
-    'bcrypt'
+    'bcrypt',
+    'Markdown'
     ]
 
 setup(name='fosstp',

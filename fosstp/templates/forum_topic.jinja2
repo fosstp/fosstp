@@ -12,7 +12,7 @@
           <li class="active">{{ forum_topic.title }}</li>
         </ul>
       </div>
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="col-sm-offset-1 col-sm-10">
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">
@@ -20,34 +20,46 @@
             </h3>
           </div>
           <div class="panel-body">
-            {{ forum_topic.content }}
+            {{ markdown(forum_topic.content)|safe }}
           </div>
           <div class="panel-footer">
-            發表：{{ forum_topic.user.name }}
-            時間：{{ forum_topic.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}
-            {% if request.session['id'] == forum_topic.user_id %}
-              <a class="btn btn-info btn-xs pull-right" href="{{ request.route_path('forum_topic_edit', id=forum_topic.id) }}">修改主題</a>
-            {% endif %}
+            <div class="row">
+              <div class="col-sm-11">
+                發表：{{ forum_topic.user.name }}
+                時間：{{ forum_topic.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}
+              </div>
+              <div class="col-sm-1">
+                {% if request.session['id'] == forum_topic.user_id %}
+                  <a class="btn btn-info btn-xs pull-right" href="{{ request.route_path('forum_topic_edit', id=forum_topic.id) }}">修改主題</a>
+                {% endif %}
+              </div>
+            </div>
           </div>
         </div>
       </div>
       {% for forum_reply in forum_topic.forum_replies %}
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="col-sm-offset-1 col-sm-10">
           <div class="panel panel-info">
             <div class="panel-body">
-              {{ forum_reply.content }}
+              {{ markdown(forum_reply.content)|safe }}
             </div>
             <div class="panel-footer">
-              發表：{{ forum_reply.user.name }}
-              時間：{{ forum_reply.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}
-              {% if request.session['id'] == forum_reply.user_id %}
-                <a class="btn btn-success btn-xs pull-right" href="{{ request.route_path('forum_reply_edit', id=forum_reply.id) }}">修改回應</a>
-              {% endif %}
+              <div class="row">
+                <div class="col-sm-11">
+                  發表：{{ forum_reply.user.name }}
+                  時間：{{ forum_reply.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}
+                </div>
+                <div class="col-sm-1">
+                  {% if request.session['id'] == forum_reply.user_id %}
+                    <a class="btn btn-success btn-xs pull-right" href="{{ request.route_path('forum_reply_edit', id=forum_reply.id) }}">修改回應</a>
+                  {% endif %}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       {% endfor %}
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="col-sm-offset-1 col-sm-10">
         <form action="" method="post">
           {% if forum_reply_form.content.errors %}
             <div class="alert alert-danger" role="alert">

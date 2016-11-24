@@ -17,10 +17,12 @@ def forum_category_view(request):
     forum_category = Session.query(ForumCategoryModel).get(forum_category_id)
     return {'forum_category': forum_category}
 
+
 @view_config(route_name='forum_category_add', renderer='templates/forum_category_add.jinja2', request_method='GET', permission='member')
 def forum_category_add_view_get(request):
     form = ForumCategoryAddForm()
     return {'form': form}
+
 
 @view_config(route_name='forum_category_add', renderer='templates/forum_category_add.jinja2', request_method='POST', permission='member')
 def forum_category_add_view_post(request):
@@ -38,8 +40,11 @@ def forum_category_add_view_post(request):
 
 @view_config(route_name='forum_topic', renderer='templates/forum_topic.jinja2', request_method='GET')
 def forum_topic_view_get(request):
+    from markdown import markdown
+
     forum_topic = Session.query(ForumTopicModel).get(int(request.matchdict['id']))
     forum_reply_form = ForumReplyAddForm()
+
     return {'forum_topic': forum_topic, 'forum_reply_form': forum_reply_form}
 
 @view_config(route_name='forum_topic', renderer='templates/forum_topic.jinja2', request_method='POST', permission='member')

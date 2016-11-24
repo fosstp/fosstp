@@ -59,6 +59,10 @@ def main(global_config, **settings):
 
     # using jinja2 as default template engine
     config.include('pyramid_jinja2')
+    config.commit()
+    jinja2_env = config.get_jinja2_environment()
+    from markdown import markdown
+    jinja2_env.globals['markdown'] = markdown
 
     # session settings
     if asbool(settings['production_mode']):
