@@ -21,6 +21,7 @@ from fosstp.models.about import *
 from fosstp.models.forum import *
 from fosstp.models.news import *
 from fosstp.models.link import *
+from fosstp.models.planet import *
 target_metadata = BaseObject.metadata
 
 # other values from the config, defined by the needs of env.py,

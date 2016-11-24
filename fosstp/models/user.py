@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 from .forum import ForumTopicModel, ForumReplyModel
 from .news import NewsModel
 from .link import LinkModel
+from .planet import PlanetModel
 
 
 __all__ = ['UserModel']
@@ -38,3 +39,6 @@ class UserModel(BaseObject):
 
     # 發表的好站連結
     links = relationship(LinkModel, backref='user')
+
+    # 新增的星球聯播
+    planets = relationship(PlanetModel, backref='user')
