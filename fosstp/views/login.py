@@ -21,7 +21,7 @@ def login_view_post(request):
             request.session['id'] = user.id
             request.session['group'] = user.group
             headers = remember(request, form.name.data)
-            raise HTTPFound(location=request.route_path('news'), headers=headers)
+            raise HTTPFound(location=request.route_path('home'), headers=headers)
         else:
             request.session.flash('帳號或密碼錯誤', 'error')
             return {'form': form}

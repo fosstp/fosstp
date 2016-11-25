@@ -23,7 +23,7 @@ def settings_view_post(request):
             user.password = bcrypt.hashpw(form.new_password.data.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
             user.email = form.email.data
             Session.add(user)
-          raise HTTPFound(location=request.route_path('news'))
+          raise HTTPFound(location=request.route_path('home'))
         else:
           request.session.flash('舊密碼不對', 'error')
           return {'form': form}

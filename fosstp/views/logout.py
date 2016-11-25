@@ -10,4 +10,4 @@ def logout(request):
     if 'group' in request.session: del request.session['group']
     request.session.flash('您已登出', 'info')
     headers = forget(request)
-    raise HTTPFound(location=request.route_path('news'), headers=headers)
+    raise HTTPFound(location=request.route_path('home'), headers=headers)
