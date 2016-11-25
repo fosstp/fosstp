@@ -15,8 +15,14 @@
         <div class="list-group">
           {% for forum_topic in forum_category.topics %}
             <a href="{{ request.route_path('forum_topic', id=forum_topic.id) }}" class="list-group-item">
-              {{ forum_topic.title }}
-              <span class="pull-right">{{ forum_topic.user.name }} {{ forum_topic.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+              <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  {{ forum_topic.title }}
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <span class="pull-right">{{ forum_topic.user.name }} {{ forum_topic.create_datetime.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                </div>
+              </div>
             </a>
           {% endfor %}
         </div>
