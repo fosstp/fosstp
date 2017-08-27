@@ -1,0 +1,189 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "d2e351ddd3d821ddfef70faf27215906fdf710fa0150faef6ea7d3ceac9e5397"
+        },
+        "requires": {},
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "alembic": {
+            "version": "==0.8.8"
+        },
+        "bcrypt": {
+            "version": "==3.1.3"
+        },
+        "cffi": {
+            "version": "==1.10.0"
+        },
+        "feedparser": {
+            "version": "==5.2.1"
+        },
+        "hupper": {
+            "version": "==1.0"
+        },
+        "jinja2": {
+            "version": "==2.9.6"
+        },
+        "mako": {
+            "version": "==1.0.7"
+        },
+        "markdown": {
+            "version": "==2.6.9"
+        },
+        "markupsafe": {
+            "version": "==1.0"
+        },
+        "pastedeploy": {
+            "version": "==1.5.2"
+        },
+        "plaster": {
+            "version": "==0.5"
+        },
+        "plaster-pastedeploy": {
+            "version": "==0.4.1"
+        },
+        "pycparser": {
+            "version": "==2.18"
+        },
+        "pymysql": {
+            "version": "==0.7.9"
+        },
+        "pyramid": {
+            "version": "==1.7.3"
+        },
+        "pyramid-jinja2": {
+            "version": "==2.7"
+        },
+        "pyramid-mailer": {
+            "version": "==0.14.1"
+        },
+        "pyramid-redis-sessions": {
+            "version": "==1.0.1"
+        },
+        "pyramid-sqlalchemy": {
+            "version": "==1.6"
+        },
+        "pyramid-tm": {
+            "version": "==1.0.2"
+        },
+        "pyramid-wtforms": {
+            "version": "==2.4.0"
+        },
+        "python-editor": {
+            "version": "==1.0.3"
+        },
+        "redis": {
+            "version": "==2.10.6"
+        },
+        "repoze.lru": {
+            "version": "==0.6"
+        },
+        "repoze.sendmail": {
+            "version": "==4.4.1"
+        },
+        "setuptools": {
+            "version": "==36.2.7"
+        },
+        "six": {
+            "version": "==1.10.0"
+        },
+        "sqlalchemy": {
+            "version": "==1.1.13"
+        },
+        "transaction": {
+            "version": "==2.1.2"
+        },
+        "translationstring": {
+            "version": "==1.3"
+        },
+        "venusian": {
+            "version": "==1.1.0"
+        },
+        "webob": {
+            "version": "==1.7.3"
+        },
+        "wtforms": {
+            "version": "==2.1"
+        },
+        "zope.deprecation": {
+            "version": "==4.3.0"
+        },
+        "zope.interface": {
+            "version": "==4.4.2"
+        },
+        "zope.sqlalchemy": {
+            "version": "==0.7.7"
+        }
+    },
+    "develop": {
+        "coverage": {
+            "version": "==4.4.1"
+        },
+        "hupper": {
+            "version": "==1.0"
+        },
+        "mako": {
+            "version": "==1.0.7"
+        },
+        "markupsafe": {
+            "version": "==1.0"
+        },
+        "pastedeploy": {
+            "version": "==1.5.2"
+        },
+        "plaster": {
+            "version": "==0.5"
+        },
+        "plaster-pastedeploy": {
+            "version": "==0.4.1"
+        },
+        "py": {
+            "version": "==1.4.34"
+        },
+        "pygments": {
+            "version": "==2.2.0"
+        },
+        "pyramid": {
+            "version": "==1.9.1"
+        },
+        "pyramid-debugtoolbar": {
+            "version": "==4.3"
+        },
+        "pyramid-mako": {
+            "version": "==1.0.2"
+        },
+        "pytest": {
+            "version": "==3.2.1"
+        },
+        "pytest-cov": {
+            "version": "==2.5.1"
+        },
+        "repoze.lru": {
+            "version": "==0.6"
+        },
+        "setuptools": {
+            "version": "==36.2.7"
+        },
+        "translationstring": {
+            "version": "==1.3"
+        },
+        "venusian": {
+            "version": "==1.1.0"
+        },
+        "webob": {
+            "version": "==1.7.3"
+        },
+        "zope.deprecation": {
+            "version": "==4.3.0"
+        },
+        "zope.interface": {
+            "version": "==4.4.2"
+        }
+    }
+}
