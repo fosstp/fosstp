@@ -17,7 +17,7 @@ pyramid-sqlalchemy==1.6
 pyramid-tm==1.0.2
 pyramid-wtforms==2.4.0
 pytest==3.0.4
-python-editor==1.0.2
+python-editor==1.0.3
 redis==2.10.5
 repoze.lru==0.6
 repoze.sendmail==4.2
