@@ -28,7 +28,7 @@ requires = [
     ]
 
 setup(name='fosstp',
-      version='0.0',
+      version='0.0.1.dev1',
       description='fosstp',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
@@ -37,9 +37,9 @@ setup(name='fosstp',
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
         ],
-      author='',
-      author_email='',
-      url='',
+      author='FOSSTP',
+      author_email='fosstp@gmail.com',
+      url='https://foss.tp.edu.tw',
       keywords='web pyramid',
       packages=find_packages(),
       include_package_data=True,
