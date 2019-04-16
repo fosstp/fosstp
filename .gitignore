@@ -9,3 +9,4 @@ development.ini
 .idea/
 .coverage
 alembic.ini
+.venv
